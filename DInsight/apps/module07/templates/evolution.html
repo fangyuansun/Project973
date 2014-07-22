@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% block title %}专题演化{% endblock %}
+
+{% block cssFiles %}
+{% load staticfiles %}
+<link rel="stylesheet" href='/static/css/index.css' type="text/css" />
+<link rel="stylesheet" href='/static/css/redeploy.css' type="text/css" />
+<link rel="stylesheet" href='/static/tree/css/tree.css' type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="body_content">
+	<!--左侧栏begin -->
+	<div class="mdl_left">
+            
+<!--三级树begin -->
+            <div class="wrap-menu"></div>
+<!--三级树end -->
+            <div class="mdl_set"><center><a class="but_a"> 配置元素</a></center></div> 
+    </div>
+    <!--左侧栏end -->
+    
+    <!--右侧栏begin -->
+    <!--配置界面begin -->
+    <div class="mdl_right" id="right_html">
+    
+    	<div class="content_pz">
+            <div class="mdl_sort">
+            	<div class="addtil">
+                	<a><img src="/static/images/iconfont-tianjia.png">新建话题</a>
+                </div>
+                <div class="sort_sel">
+                    <span>选择类别</span>
+                    <img src="/static/images/iconfont-chevron-up.png">
+                </div>
+                <div class="sarch_input">
+                	<img src="/static/images/find.png"><input type="text" placeholder="输入关键字查找">
+                </div>
+                <div class="item_pz" id="li_pz">
+                    <div class="wrapmenu_pz"></div>
+                </div>
+            </div>
+        
+            <div class="content_ajax">
+            	<div class="add_news">
+                	<div class="addnews_th">新建话题 <a>关闭</a></div>
+                    <div class="addnews_info">话题名称：<input type="text"> <a>确认添加</a></div>
+                </div>
+            	<ul>
+                	<li>
+                    	<div class="ajax_tr">
+                            <div class="td_title">TITLE1</div>
+                            <div class="td_upddate">最后修改于2014/7/11</div>
+                            <div class="td_func"><a class="edit_a">编辑</a> <a class="del_a">删除</a></div>
+                        </div>
+                        <div class="ajax_item_content" id="row1">
+                        	
+                        </div>
+                    </li>
+                </ul>
+                
+                
+            </div>
+        
+        </div>
+    </div>
+    <!--配置界面end -->
+    
+    <!--主页内容begin -->
+    <div class="mdl_right" id="index_html">
+        <div class="newsmdl_content">
+            <a class="mdl_news mdl_selected">百度新闻</a>
+            <a class="mdl_news">腾讯闻讯</a>
+            <a class="mdl_news">搜狐新闻</a>
+            <a class="mdl_news">新浪新闻</a>
+        </div>
+        <div class="contain">
+            <div id="container" style="height:100%;"></div>
+        </div>
+         
+        <div class="newsmdl_content">
+            <a class="mdl_news mdl_selected">TAB1</a>
+            <a class="mdl_news">TAB2</a>
+            <a class="mdl_news">TAB3</a>
+            <a class="mdl_news">TAB4</a>
+        </div>
+        <div class="contain_el">
+        	<div class="el_content el_left">
+            	<a><span class="news_info">新闻1------------ </span><span class="news_time">2014/7/17 15:55</span></a>
+            </div>
+            <div class="el_content el_right">
+            	<a><span class="news_info">其它1------------ </span><span class="news_time">2014/7/17 15:55</span></a>
+            </div>
+        </div>
+    </div>
+    <!--主页内容end -->
+    
+    <!--右侧栏end -->
+ </div>  
+ 
+{% endblock %}
+
+{% block jsFiles %}
+{% load staticfiles %}
+    <!--js files-->
+	<script src='/static/js/jquery.min.js'></script>
+	<script src='/static/tree/js/tree.js'></script>
+	<script src='/static/tree/js/treedata.js'></script>
+	<script src='/static/js/main.js'></script>
+	<script src='/static/js/redeploy.js'></script>
+   	<script src='/static/js/load.js'></script>
+	<script src='/static/js/highcharts.js'></script>
+<script>
+function draw(itemid) {
+		if($('#right_html').is(":visible")){
+				$('#right_html').hide();
+				$('#index_html').hide();
+				$('#index_html').slideToggle('slow');
+			}
+		if($('.selected')){
+				$('.selected').removeClass('selected');
+			}
+		$('#'+itemid+'').addClass('selected');
+		//折线图数据填充
+	
+        $('#container').highcharts({
+            chart: {
+                zoomType: 'x'
+            },
+            title: {				
+                text: '话题："'+ $('#'+itemid+'').html() +'"热度'
+            },
+            subtitle: {
+                text: document.ontouchstart === undefined ?
+                    'Click and drag in the plot area to zoom in' :
+                    'Pinch the chart to zoom in'
+            },
+            xAxis: {
+                type: 'datetime',
+                minRange: 30 * 24 * 3600000// fourteen days
+            },
+            yAxis: {
+                title: {
+                    text: 'popularity'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle',
+				borderWidth: 0
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[5]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 5
+                    },
+                    lineWidth: 1,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                },
+				series: {
+					cursor: 'pointer',
+					events: {
+						click: function(e) {       //单击点显示时间段热点新闻
+							var day = (e.point.category/86400000)-15706;
+							var d = new Date('2013/01/01');
+							d.setTime(d.getTime()+day*24*60*60*1000);
+							var s = d.getFullYear()+"/" + (d.getMonth()+1) + "/" + d.getDate();
+							reloadnews(s);
+						}
+					}
+				}
+            },
+    
+            series: [{
+                type: 'area',
+                name: 'period1',
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: Date.UTC(2014, 5, 20),
+				fillColor: '#ff9',
+                data: {{data1}}
+            },
+			{
+                type: 'area',
+                name: 'period2',
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: Date.UTC(2014, 5, 30),
+				fillColor: '#eab064',
+                data: {{data2}}
+            },
+            {
+                type: 'area',
+                name: 'period3',
+                pointInterval: 24 * 3600 * 1000,
+                pointStart: Date.UTC(2014, 6, 10),
+                fillColor: '#BBBEE1',
+                data: {{data3}}
+            }]
+        });
+    }
+	draw('item1');
+	monitorTree();
+</script>
+{% endblock %}
+

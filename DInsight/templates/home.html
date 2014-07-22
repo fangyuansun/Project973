@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}首页{% endblock %}
+
+<!-- css files -->
+{% block cssFiles %}
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Welcome to D-Insight Home page</h1>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<form action="{% url 'search' %}" method="post">
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" placeholder="地沟油" />
+        </div>
+        <div class="small-3 columns">
+          <a href="#" class="button tiny radius">搜索original</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+{% endblock %}
+
+<!-- js files -->
+{% block jsFiles %}
+{% endblock %}

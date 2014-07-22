@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %} {% endblock %}</title>
+
+    <!--css files-->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css" />
+    {% block cssFiles %}
+    {% endblock %}
+  </head>
+
+  <body>
+    <!--Navigator-->
+    <div class="sticky">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <a href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="divider"></li>
+            <!--Home-->
+            <li><a href="{% url 'home' %}">D-Insight</a></li>
+
+            <li class="divider"></li>
+            <!--Analysis-->
+            <li><a href="#">Analysis</a></li>
+
+            <li class="divider"></li>
+            <!--Simulation-->
+            <li><a href="#">Simulation</a></li>
+
+            <li class="divider"></li>
+            <!--Gallery-->
+            <li><a href="{% url 'module04:galleryHome' %}">Gallery</a></li>
+
+            <li class="divider"></li>
+            <!--Monitor-->
+            <li><a href="#">Monitor</a></li>
+            <li class="divider"></li>
+			<!--Evolution-->
+			<li><a href="{% url 'module07:evolution' %}">Evolution</a></li>
+            <li class="divider"></li>
+			
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <!--footer-->
+    <footer class="footer">
+      <div class="row">
+        <div class="small-12 large-6 large-offset-3 columns text-center">
+          <p id="copyright">
+          Copyright © 2014 Digital media Computing & Design Lab, Zju.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 large-8 large-offset-2 columns foot-tag">
+          <ul>
+            <li>
+              <a href="#">Logo</a>
+            </li>
+            <li>
+              <a href="#">973 Project</a>
+            </li>
+            <li>
+              <a href="#">Chinese</a>
+            </li>
+            <li>
+              <a href="#">English</a>
+            </li>
+            <li class="last">
+              <a href="#">Statistics</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!--js files-->
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/foundation.min.js' %}"></script>
+    <script src="{% static 'js/foundation/foundation.topbar.js' %}"></script>
+    <script src="{% static 'js/foundation/foundation.tab.js' %}"></script>
+
+    <script src="{% static 'js/base.js' %}"></script>
+
+    {% block jsFiles %}
+    {% endblock %}
+  </body>
+</html>

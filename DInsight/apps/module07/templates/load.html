@@ -1,0 +1,49 @@
+<head>
+	<meta charset="utf-8"/>
+    <script src="/static/js/load.js" type="text/javascript"></script>
+    <script src="My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+</head>
+<div class="tr_util">
+	<div class="td_util til">
+		<div class="tr_th tr_til">标题</div>
+		<input type="text" value="TITLE1" onFocus="this.select();" onBlur="titleblur()">
+	</div>
+	<div class="td_util gjz">
+		<div class="tr_th">关键字</div>
+		<div class="content_gjz">
+			<span>公交<a><img src="/static/images/iconfont-shanchu.png"></a></span>
+		</div>
+        <div class="add_gjz"><input type="text"><a><img src="/static/images/iconfont-tianjia.png">创建</a></div>
+		
+	</div>
+	<div class="td_util news">
+		<div class="tr_th">样例新闻</div>
+		<a>新闻1</a>
+        <a>新闻2</a>
+	</div>
+</div>
+<div class="tr_gzy">
+	<div>
+		跟踪源： 
+	   <input type="checkbox" name="gzy" checked>百度新闻 
+	   <input type="checkbox" name="gzy">腾讯新闻 
+	   <input type="checkbox" name="gzy">搜狐新闻 
+	   <input type="checkbox" name="gzy">新浪新闻
+	</div>
+	<div class="text_right">
+		<input type="checkbox" class="timearea"><span>爬取时间段&nbsp;&nbsp;
+        从<input class="time_input" onClick="WdatePicker()"/> 至<input class="time_input" onClick="WdatePicker()"/></span> &nbsp;&nbsp;
+        爬取间隔
+		<select>
+			<option value=""> 1天 </option>
+			<option value=""> 3天 </option>
+			<option value=""> 一周 </option>
+            <option value=""> 一月 </option>
+            <option value=""> 一季度 </option>
+            <option value=""> 一年 </option>
+		</select>
+	</div>
+	<div class="text_right">
+		<a class="submit_input">完成</a>
+	</div>
+</div>

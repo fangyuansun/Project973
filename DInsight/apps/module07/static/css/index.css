@@ -1,0 +1,139 @@
+body{
+	background:#fff;
+	overflow:visible;
+	color:#555;
+	font-family:Microsoft Yahei,Arial,Helvetica,sans-serif;
+	}
+a{
+	color:#555;
+	}
+.body_content{
+	width:100%;
+	height:850px;
+	}
+.but_a{
+	display:block;
+	background:#ddd;
+	height:50px;
+	line-height:50px;
+	color:#444;
+	text-align:center;
+	width:95%;
+	letter-spacing:3px;
+	font-size:18px;
+	}
+
+.mdl_left{
+	width:12.99%;
+	height:100%;
+	float:left;
+	background:#3d3d3d;
+	color:#fff;
+	}
+.left_content{
+	width:95%;
+	margin:0 auto;
+	border:1px solid #ddd;
+	padding:10px;
+	}
+.mdl_left .treeli ul li{
+	padding:0.3rem;
+	}
+.mdl_set{
+	width:100%;
+	margin-top:20px;
+	}
+.mdl_set a:hover{
+	color:#444;
+	}
+.mdl_set a:visited{
+	color:#444;
+	}
+.mdl_right{
+	width:87%;
+	float:left;
+	overflow:auto;
+	padding:20px;
+	}
+.contain{
+	width:90%;
+	margin:0 auto;
+	height:500px;
+	border:1px solid #ddd;
+	padding:10px;
+	}
+.contain_el{
+	width:90%;
+	margin:0 auto;
+	height:200px;
+	border:1px solid #ddd;
+	padding:20px;
+	}
+.contain_el	.el_content{
+	height:160px;
+	width:49%;
+	}
+.contain_el .el_left{
+	float:left;
+	}
+.contain_el .el_right{
+	float:right;
+	}
+.contain_el a{
+	display:block;
+	text-align:left;
+	border-bottom:1px dashed #ccc;
+	padding:10px;
+	height:28px;
+	color:#005580;
+	font-size:14px;
+	}
+.contain_el a:hover{
+	text-decoration:underline;
+	}
+.contain_el .news_time{
+	float:right;
+	font-size:12px;
+	color:#999;
+	display:block;
+	width:30%;
+	text-align:right;
+	}
+.contain_el .news_info{
+	float:left;
+	display:block;
+	width:70%;
+	}
+.contain_el .more{
+	text-align:center;
+	border:none;
+	}
+.newsmdl_content{
+	width:90%;
+	margin:0 auto;
+	height:30px;
+	margin-top:10px;
+	}
+.newsmdl_content a:hover{
+	color:#000;
+	}
+
+.mdl_news{
+	display:block;
+	float:left;
+	padding:0px 20px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	position:relative;
+	bottom:-1px;
+	}
+.mdl_selected{
+	border-left:1px solid #ddd;
+	border-top:3px solid #666;
+	border-right:1px solid #ddd;
+	background:#fff;
+	}
+#right_html{
+	display:none;
+	}
